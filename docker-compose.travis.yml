@@ -4,16 +4,16 @@ services:
         image: mysql
         environment:
             MYSQL_ROOT_PASSWORD: root
-            MYSQL_DATABASE: symfony
-            MYSQL_USER: symfony
-            MYSQL_PASSWORD: symfony
+            MYSQL_DATABASE: project
+            MYSQL_USER: project
+            MYSQL_PASSWORD: project
     php:
         build: ./php-fpm
         expose:
             - "9001"
         volumes:
-            - ./symfony:/var/www/symfony
-            - ./logs/symfony:/var/www/symfony/var/log
+            - ./project:/var/www/project
+            - ./logs/project:/var/www/project/var/log
         links:
             - db
     nginx:
